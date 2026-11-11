@@ -17,10 +17,15 @@
 
     <ItemGroup>
       <Content Remove="Components\Pages\Produtos\**" />
+      <Content Remove="Components\NomeInput.razor" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Components\Pages\Produtos\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Components\prints\" />
     </ItemGroup>
 
 </Project>

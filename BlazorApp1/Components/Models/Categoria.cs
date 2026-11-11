@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace BlazorApp1.Components.Models;
-
+    
 public class Categoria
 {
     [MinLength(3, ErrorMessage = "O nome da categoria deve conter no mínimo 3 caracteres")]

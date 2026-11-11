@@ -1,0 +1,33 @@
+@using BlazorApp1.Components.Models
+
+<EditForm Model="produto" OnValidSubmit="Cadastrar">
+    <DataAnnotationsValidator />
+
+    <label class="form0label">Nome</label>
+    <InputText class="form-control" @bind-Value="produto.Nome" placeholder="Nome"/>
+    <ValidationMessage For="() => produto.Nome" />
+
+    <label class="form0label">Quantidade</label>
+    <InputNumber class="form-control" type="number" @bind-Value="produto.Quantidade" placeholder="Quantidade"/>
+    <ValidationMessage For="() => produto.Quantidade" />
+
+    <label class="form0label">Preço</label>
+    <InputNumber class="form-control" type="number" step="0.01" @bind-Value="produto.Preco" placeholder="Preço"/>
+    <ValidationMessage For="() => produto.Preco" />
+
+    <button class="btn btn-primary" type="submit" >Adicionar Produto</button>
+                
+</EditForm>   
+
+@code {
+    private Produto produto = new();
+ 
+    [Parameter] 
+    public EventCallback<Produto> AdicionarProduto { get; set; }
+
+    private async Task Cadastrar()
+    {
+        await AdicionarProduto.InvokeAsync(produto);
+        produto = new Produto();
+    }
+}
